@@ -3,6 +3,8 @@ import ActionMessage from '@/Components/ActionMessage.vue';
 import { computed, ref, watch, watchEffect } from 'vue';
 import { Link, usePage } from '@inertiajs/vue3';
 import ApplicationLogo from '@/Components/ApplicationLogo.vue';
+import Footer from '@/Components/Footer.vue';
+
 
 const page = usePage()
 
@@ -35,9 +37,9 @@ watch(flashedData, () => {
 
 </script>
 
-<template>
-    <!-- <div class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white"> -->
-        <div v-if="canLogin" class="flex items-center justify-between p-6 max-w-7xl mx-auto">
+<template >
+    <div class="h-screen flex flex-col justify-between">
+        <div v-if="canLogin" class="flex justify-between w-full max-w-7xl p-6 self-center">
             <Link :href="route('products.index')">
                 <ApplicationLogo class="overflow-visible"></ApplicationLogo>
             </Link>
@@ -63,8 +65,11 @@ watch(flashedData, () => {
                 </template>
             </div>
         </div>
-        <slot />
-
+        <div class="flex-grow" >
+            <slot />
+        </div>
+        <Footer />
+    </div>
 </template>
 
 <style>
