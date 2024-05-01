@@ -31,9 +31,10 @@ class SiteController extends Controller
         ]);
     }
 
-    public function confirmation() : Response {
+    public function confirmation(Request $request) : Response {
         return Inertia::render('Confirmation', [
-            'order' => Order::where('customerNumber', Auth::user()->customer_id)->latest('created_at')->first()
+            'order' => Order::where('customerNumber', Auth::user()->customer_id)->latest('created_at')->first(),
+            'basket_item_count' => $this->basketService->BasketItemsCount($request->user(), $request)
         ]);
     }
 }
