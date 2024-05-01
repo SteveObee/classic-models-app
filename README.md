@@ -1,66 +1,33 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+## About the app
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+The classic models app is built with the php framework [laravel](https://laravel.com) and utilizes a MySQL database found [here](https://www.mysqltutorial.org/getting-started-with-mysql/mysql-sample-database/). It was created to demonstrate my capabilities as a web developer and become a cornerstone of my portfolio, hosted on my personal [website](https://steveobee.github.io/) and deployed at http://classic-models-app.dependabledev.co.uk
 
-## About Laravel
+The scenario imagines being approached by a retailer looking to expand online with an existing database containing records associated with company operations. Here is a description of the database from the mysqltutorial website.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+>"The classicmodels database is a retailer of scale models of classic cars. It contains typical business data, including information about customers, products, sales orders, sales order line items, and more."
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### The process
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+The project is set up using [Laravel Jetstream](https://jetstream.laravel.com/introduction.html), which takes care of the auth and login process among other things and [InertiaJs](https://inertiajs.com/) for SSR, coupled with [VueJs](https://vuejs.org/) for the frontend.
 
-## Learning Laravel
+The app has been developed with a strong Domain Driven Design influence and incorporates a lot of the aspects I have learnt from [Martin Joo](https://martinjoo.dev/blog) and his wonderful blog. Check out the /src folder to see some of my implementations of Martin's teachings.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### Images
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+All images are sourced from [pexels.com](https://www.pexels.com/) and are randomly assigned to products by product lines related to pexel collection's. These collections are setup in my pexels account and a PEXELS_API_KEY in the .env file allows the app access to those collections.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+This means in order to replicate this capability you would need to first have your own PEXELS_API_KEY for the .env file then create your own collections on pexels before editing the database/seeders/productlineSeeder file to link pexel collection id's and product lines.
 
-## Laravel Sponsors
+After all that a command run after database migration and seeding will gather all products and download the related pictures from pexels to app storage in the size given.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+`php artisan image:store-images {size}`
 
-### Premium Partners
+At the moment the site only requires tiny and medium size pictures although that may change in the future.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+### Closing
 
-## Contributing
+The project taught me a great deal about DDD principles and patterns and significantly improved my ability to architect and build a robust, adaptable and responsive web app.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+I hope the source code may be of use to you 👋.
 
-## Code of Conduct
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
