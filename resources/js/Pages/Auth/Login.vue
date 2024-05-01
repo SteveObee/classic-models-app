@@ -33,14 +33,19 @@ const submit = () => {
 
 <template>
     <Head title="Log in" />
-
+    
     <AuthenticationCard>
         <template #logo>
             <Link href="/">
                 <ApplicationMark class="w-16 h-16"/>
             </Link>
         </template>
-
+        <div class="py-6" >
+            <p class="mt-2" >login details for sample account:</p>
+            <p class="mt-2" >freyred@esc.com</p>
+            <p class="mt-2" >24@-!AaJhP-ErXH</p>
+        </div>
+        
         <div v-if="status" class="mb-4 font-medium text-sm text-green-600">
             {{ status }}
         </div>
@@ -59,7 +64,7 @@ const submit = () => {
                 />
                 <InputError class="mt-2" :message="form.errors.email" />
             </div>
-
+            
             <div class="mt-4">
                 <InputLabel for="password" value="Password" />
                 <TextInput
@@ -69,10 +74,10 @@ const submit = () => {
                     class="mt-1 block w-full"
                     required
                     autocomplete="current-password"
-                />
-                <InputError class="mt-2" :message="form.errors.password" />
-            </div>
-
+                    />
+                    <InputError class="mt-2" :message="form.errors.password" />
+                </div>
+                
             <div class="block mt-4">
                 <label class="flex items-center">
                     <Checkbox v-model:checked="form.remember" name="remember" />
@@ -94,4 +99,5 @@ const submit = () => {
             </div>
         </form>
     </AuthenticationCard>
+    
 </template>

@@ -65,7 +65,6 @@ const decrementBasketItemCount = () => {
 
 <template>
     <Head title="Basket" />
-    <div class="overflow-y-scroll">
     <DialogModal :show="confirmingEmptyBasket" @close="closeModal">
         <template v-slot:title>Empty Basket</template>
         <template v-slot:content>
@@ -136,6 +135,5 @@ const decrementBasketItemCount = () => {
                 </div>
             </div>
         </div>
-        </SiteLayout>
-    </div>
+    </SiteLayout>
 </template>
