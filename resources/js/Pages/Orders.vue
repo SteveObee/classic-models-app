@@ -99,16 +99,16 @@ const selectSingleStatus = (status) => {
                     </div>
                 </div>
                 <div class="pb-4">
-                    <label for="order_count_select" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Per Page:</label>
-                    <select class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" id="order_count_select" :onChange="changePageOptions" v-model="selectedOrdersPerPage">
+                    <label for="order_count_select" class="block mb-2 text-sm font-medium text-gray-900">Per Page:</label>
+                    <select class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" id="order_count_select" :onChange="changePageOptions" v-model="selectedOrdersPerPage">
                         <option v-for="option in pageCountOptions" :value="option.value">
                             {{ option.text }}
                         </option>
                     </select>
                 </div>           
                 <div class="pb-4">
-                    <label for="sort_select" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Sort by:</label>
-                    <select id="sort_select" v-model="selectedSort" :onChange="changePageOptions" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                    <label for="sort_select" class="block mb-2 text-sm font-medium text-gray-900">Sort by:</label>
+                    <select id="sort_select" v-model="selectedSort" :onChange="changePageOptions" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
                         <option v-for="option in sortOptions" :value="option.value">
                             {{ option.text }}
                         </option>

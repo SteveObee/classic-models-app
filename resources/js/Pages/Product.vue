@@ -226,11 +226,11 @@ const basketItemCount = ref(props.model.basket_item_count);
                             </div>
                         </div>  
 
-                        <h2 class="mb-2 text-xl font-semibold text-gray-900 dark:text-white">{{ productName }}</h2>
+                        <h2 class="mb-2 text-xl font-semibold text-gray-900 ">{{ productName }}</h2>
                         <h3 class="mb-6">by {{ productVendor }}</h3>
 
                                 
-                        <p class="mb-6 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
+                        <p class="mb-6 text-gray-500 text-sm leading-relaxed">
                             {{ productDescription }}
                         </p>
 

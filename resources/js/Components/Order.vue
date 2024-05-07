@@ -101,7 +101,7 @@ const statusClass = computed(() => {
         <div v-if="toggle" class="p-4 overflow-scroll">
             
                 <table class="table-auto text-left text-md font-light">
-                    <thead class="border-b font-medium dark:border-neutral-500 dark:bg-neutral-600">
+                    <thead class="border-b font-medium">
                         <tr>
                             <th scope="col" class="px-6 py-4">#</th>
                             <th scope="col" class="px-6 py-4">Product Code</th>

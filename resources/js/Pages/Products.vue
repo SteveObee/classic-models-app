@@ -8,7 +8,7 @@ import { useDebounce } from '@/Composables/debounce';
 import SiteLayout from '@/Layouts/SiteLayout.vue';
 import SplitLayout from '@/Layouts/SplitLayout.vue';
 import { Head, Link, router } from '@inertiajs/vue3';
-import { ref, computed, watch, watchEffect } from 'vue';
+import { ref, computed, watch } from 'vue';
 
 const props = defineProps({ 
     request: Array,
@@ -277,8 +277,8 @@ const guestBasketItemCount = ref(props.guestBasketItemCount);
                     
                     <!-- Sort Method -->
                     <div class="pt-4">
-                        <label for="sort_by" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Sort By:</label>
-                        <select class="w-52 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" id="sort_by" :onChange="changePageOptions" v-model="selectedSortMethod">
+                        <label for="sort_by" class="block mb-2 text-sm font-medium text-gray-900">Sort By:</label>
+                        <select class="w-52 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5" id="sort_by" :onChange="changePageOptions" v-model="selectedSortMethod">
                             <option v-for="option in sortOptions" :value="option.value">
                                 <h2>{{ option.text }}</h2> 
                             </option>
@@ -287,8 +287,8 @@ const guestBasketItemCount = ref(props.guestBasketItemCount);
     
                     <!-- Page Count -->
                     <div class="pt-4">
-                        <label for="page_select" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Per Page:</label>
-                        <select class="w-16 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" id="page_select" :onChange="changePageOptions" v-model="selectedProductsPerPage">
+                        <label for="page_select" class="block mb-2 text-sm font-medium text-gray-900 ">Per Page:</label>
+                        <select class="w-16 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5" id="page_select" :onChange="changePageOptions" v-model="selectedProductsPerPage">
                             <option v-for="option in pageCountOptions" :value="option.value">
                                 {{ option.text }}
                             </option>
@@ -330,21 +330,21 @@ const guestBasketItemCount = ref(props.guestBasketItemCount);
 
                 <!-- Product list -->
                 <div v-if="data.length > 0" :class="searching && 'opacity-40'" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-                    <Link :href="route('product', product.productCode)" v-for="product in data" class="scale-100 p-6 bg-white dark:bg-gray-800/50 dark:bg-gradient-to-bl from-gray-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500">
+                    <Link :href="route('product', product.productCode)" v-for="product in data" class="flex scale-100 p-6 bg-white rounded-lg shadow-2xl shadow-gray-500/20">
                         <div class="min-h-80 flex flex-col justify-between">
                             <div>
                                 <img :src="'storage/images/tiny/' + product.image_id + '.jpg'"  :alt="product.productName">
-                                <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">{{ product.productName }}</h2>
+                                <h2 class="mt-6 text-xl font-semibold text-gray-900">{{ product.productName }}</h2>
                             </div>
 
                             <div>
-                                <p class="mt-4 item text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
+                                <p class="mt-4 item text-gray-500 text-sm leading-relaxed">
                                     {{ product.productVendor }}
                                 </p>
-                                <p class="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
+                                <p class="mt-4 text-gray-500 text-sm leading-relaxed">
                                     {{ product.productLine }}
                                 </p>
-                                <p class="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
+                                <p class="mt-4 text-gray-500 text-sm leading-relaxed">
                                     {{ product.productScale }}
                                 </p>
                                 <p class="mt-4">{{ product.created_at }}</p>
